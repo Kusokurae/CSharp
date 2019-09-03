@@ -24,35 +24,25 @@ namespace Ultimate_TTT.Model
         public TurnState TurnState = TurnState.Active;
 
         public Panel Panel { get; set; }
-        
+
         public Square[,] Squares { get; private set; }
 
         public FieldInside()
         {
             Squares = new Square[Length, Length];
         }
-
         public void FieldDisable()
         {
             for (int i = 0; i < Length; i++)
-            {
                 for (int j = 0; j < Length; j++)
-                {
                     Squares[i, j].Enabled = false;
-                }
-            }
         }
-
         public void FieldEnable()
         {
             for (int i = 0; i < Length; i++)
-            {
                 for (int j = 0; j < Length; j++)
-                {
                     if (Squares[i, j].Text == "")
                         Squares[i, j].Enabled = true;
-                }
-            }
         }
 
         public TurnState WinnerCheck()
@@ -60,7 +50,6 @@ namespace Ultimate_TTT.Model
             TurnState = TurnState.Active;
             //int row = 0;
             for (int row = 0; row < Length; row++)
-            {
                 if (TurnState == TurnState.Active)
                 {
                     TurnState = CheckRow(row);
@@ -71,7 +60,6 @@ namespace Ultimate_TTT.Model
                     if (TurnState != TurnState.Active)
                         break;
                 }
-            }
 
             if (TurnState == TurnState.Active)
                 TurnState = CheckDiagonal1();
@@ -85,79 +73,48 @@ namespace Ultimate_TTT.Model
         private TurnState CheckRow(int row)
         {
             for (int i = 0; i < Length; i++)
-            {
                 if (Squares[row, i].Value == TurnSign.EmptySign)
-                {
                     return TurnState.Active;
-                }
-            }
-
             if (Squares[row, 0].Value == Squares[row, 1].Value && Squares[row, 1].Value == Squares[row, 2].Value)
-            {
                 return Squares[row, 0].Value == TurnSign.XSign ? TurnState.WinX : TurnState.WinO;
-            }
             else
-            {
                 return TurnState.Draw;
-            }
         }
 
         private TurnState CheckColumn(int column)
         {
             for (int i = 0; i < Length; i++)
-            {
                 if (Squares[i, column].Value == TurnSign.EmptySign)
-                {
                     return TurnState.Active;
-                }
-            }
 
             if (Squares[0, column].Value == Squares[1, column].Value && Squares[1, column].Value == Squares[2, column].Value)
-            {
                 return Squares[0, column].Value == TurnSign.XSign ? TurnState.WinX : TurnState.WinO;
-            }
             else
-            {
                 return TurnState.Draw;
-            }
         }
 
         private TurnState CheckDiagonal1()
         {
             for (int i = 0; i < Length; i++)
-            {
                 if (Squares[i, i].Value == TurnSign.EmptySign)
-                {
                     return TurnState.Active;
-                }
-            }
+
             if (Squares[0, 0].Value == Squares[1, 1].Value && Squares[1, 1].Value == Squares[2, 2].Value)
-            {
                 return Squares[0, 0].Value == TurnSign.XSign ? TurnState.WinX : TurnState.WinO;
-            }
             else
-            {
                 return TurnState.Draw;
-            }
         }
 
         private TurnState CheckDiagonal2()
         {
             for (int i = 0; i < Length; i++)
-            {
                 if (Squares[Length - i - 1, i].Value == TurnSign.EmptySign)
-                {
                     return TurnState.Active;
-                }
-            }
+
             if (Squares[0, 2].Value == Squares[1, 1].Value && Squares[1, 1].Value == Squares[2, 0].Value)
-            {
                 return Squares[0, 2].Value == TurnSign.XSign ? TurnState.WinX : TurnState.WinO;
-            }
             else
-            {
                 return TurnState.Draw;
-            }
         }
 
         public void Initialize(int position, EventHandler buttonClick, EventHandler buttonEnter, EventHandler buttonLeave)
@@ -183,10 +140,7 @@ namespace Ultimate_TTT.Model
         public void Clear()
         {
             foreach (Square square in Squares)
-            {
                 square.Clear();
-            }
-            
         }
     }
 }

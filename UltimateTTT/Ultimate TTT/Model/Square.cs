@@ -47,11 +47,7 @@ namespace Ultimate_TTT.Model
         {
             this.Enabled = true;
             this.ResetText();
-<<<<<<< HEAD
-            Value = "";
-=======
             Value = TurnSign.EmptySign;
->>>>>>> b3be24030d16abd75c617e706166529b38e39a97
         }
     }
 }
