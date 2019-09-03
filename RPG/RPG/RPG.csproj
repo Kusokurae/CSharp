@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DFA52F2A-025B-4AED-8923-51FAD94433EA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RPG</RootNamespace>
+    <AssemblyName>RPG</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EnemyClasses\Drow.cs" />
+    <Compile Include="EnemyClasses\Necromant.cs" />
+    <Compile Include="EnemyClasses\Werewolf.cs" />
+    <Compile Include="FormGameplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGameplay.Designer.cs">
+      <DependentUpon>FormGameplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerClasses\Priest.cs" />
+    <Compile Include="PlayerClasses\Rogue.cs" />
+    <Compile Include="PlayerClasses\Upgrades\ArchMage.cs" />
+    <Compile Include="PlayerClasses\Upgrades\HighPriest.cs" />
+    <Compile Include="PlayerClasses\Upgrades\Knight.cs" />
+    <Compile Include="PlayerClasses\Upgrades\Thief.cs" />
+    <Compile Include="PlayerClasses\Warrior.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="PlayerClasses\Mage.cs" />
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCharCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCharCreator.Designer.cs">
+      <DependentUpon>FormCharCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enemy.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCharCreator.resx">
+      <DependentUpon>FormCharCreator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGameplay.resx">
+      <DependentUpon>FormGameplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\RPG_Background.png" />
+    <None Include="Resources\special_Warrior.gif" />
+    <None Include="Resources\dead_Warrior.gif" />
+    <None Include="Resources\attack_Warrior.gif" />
+    <None Include="Resources\dying_Warrior.gif" />
+    <None Include="Resources\idle_Warrior.gif" />
+    <None Include="Resources\idle_Mage.gif" />
+    <None Include="Resources\dying_Mage.gif" />
+    <None Include="Resources\dead_Mage.gif" />
+    <None Include="Resources\special_Mage.gif" />
+    <None Include="Resources\attack_Mage.gif" />
+    <None Include="Resources\dead_Priest.gif" />
+    <None Include="Resources\dying_Priest.gif" />
+    <None Include="Resources\idle_Priest.gif" />
+    <None Include="Resources\special_Priest.gif" />
+    <None Include="Resources\attack_Priest.gif" />
+    <None Include="Resources\dead_Rogue.gif" />
+    <None Include="Resources\dying_Rogue.gif" />
+    <None Include="Resources\idle_Rogue.gif" />
+    <None Include="Resources\special_Rogue.gif" />
+    <None Include="Resources\attack_Rogue.gif" />
+    <None Include="Resources\dead_Necro.gif" />
+    <None Include="Resources\attack_Necro.gif" />
+    <None Include="Resources\special_Necro.gif" />
+    <None Include="Resources\idle_Necro.gif" />
+    <None Include="Resources\dying__Necro.gif" />
+    <None Include="Resources\dying_Drow.gif" />
+    <None Include="Resources\dead_Drow.gif" />
+    <None Include="Resources\attack_Drow.gif" />
+    <None Include="Resources\special_Drow.gif" />
+    <None Include="Resources\idle_Drow.gif" />
+    <None Include="Resources\idle_Wolf.gif" />
+    <None Include="Resources\dying_Wolf.gif" />
+    <None Include="Resources\dead_Wolf.gif" />
+    <None Include="Resources\attack_Wolf.gif" />
+    <None Include="Resources\special_Wolf.gif" />
+    <None Include="Resources\MenuBackground.png" />
+    <Content Include="RPG_Background.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
