@@ -1,0 +1,50 @@
+﻿public partial class UTTT : Form
+    {
+        int turn_count = 0;
+        bool turn = true;
+
+        public UTTT()
+        {
+            InitializeComponent();
+        }
+
+        private void Btn_click(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            b.Text = turn ? 'X' : 'O';
+
+            turn = !turn;
+            b.Enabled = false;
+            turn_count++;
+        }
+
+        private void Btn_enter(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            if (b.Enabled)
+            {
+                b.Text = turn ? 'X' : 'O';
+            }
+        }
+
+        private void Btn_leave(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            if (b.Enabled)
+            {
+                b.Text = "";
+            }
+        }
+
+        private void New_game(object sender, EventArgs e)
+        {
+            foreach (Control panel in BlockALL.Controls)
+            {
+                foreach (Control button in panel.Controls)
+                {
+                    button.Enabled = true;
+                    button.ResetText();
+                }
+            }
+        }
+    }
